@@ -1,0 +1,27 @@
+version: '2'
+services:
+  consul:
+    image: "consul:1.5.1"
+    hostname: "consul"
+    command: "agent -dev -client 0.0.0.0"
+    ports:
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:53/udp"
+  vault:
+    depends_on:
+      - consul
+    build: "./vault"
+    image: vault
+    hostname: "vault"
+    links:
+      - "consul:consul"
+    environment:
+      VAULT_ADDR: http://0.0.0.0:8200
+    ports:
+      - "8200:8200"
+  prom:
+    build: "./prometheus"
+    image: prometheus
+    ports:
+     - 9090:9090
