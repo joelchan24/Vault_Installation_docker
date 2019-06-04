@@ -27,10 +27,23 @@ $ docker-compose up -d vault
 ```
 ### Configure Vault
 
+Initialize Vault:
+
 ```
 $ export VAULT_ADDR='http://127.0.0.1:8200'
-$ vault operator init -key-shares=3 -key-threshold=2
+$ vault operator init -key-shares=3 -key-threshold=2 # remember to keep track of the keys somewhere
+```
+
+Unseal Vault:
+
+```
 $ vault operator unseal # do this twice with 2 different keys
+```
+
+Configure Vault:
+
+```
+$ vault login # use root token
 $ vault secrets enable -path=secret/ kv
 ```
 
