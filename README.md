@@ -20,6 +20,8 @@ To get everything working, we will need to do the following:
 $ docker-compose up -d consul
 ```
 
+You can access the Consul UI at `http://localhost:8500`
+
 ### Start Vault
 
 ```
