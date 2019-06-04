@@ -62,3 +62,9 @@ docker-compose up -d prom
 ```
 $ docker-compose stop
 ```
+
+### Metrics
+
+To learn more about Vault Telemetry, you can read about them here:
+
+https://www.vaultproject.io/docs/internals/telemetry.html
