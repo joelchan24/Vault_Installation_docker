@@ -57,6 +57,8 @@ Add the root token to the `prometheus.yml` file in the `bearer_token:` section.
 docker-compose up -d prom
 ```
 
+You can access the Prometheus UI at `http://localhost:9090`
+
 ### Stop Containers
 
 ```
