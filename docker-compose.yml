@@ -1,27 +1,35 @@
 version: '2'
 services:
-  consul:
-    image: "consul:1.5.1"
-    hostname: "consul"
-    command: "agent -dev -client 0.0.0.0"
-    ports:
-      - "8400:8400"
-      - "8500:8500"
-      - "8600:53/udp"
   vault:
-    depends_on:
-      - consul
     build: "./vault"
+    networks: 
+      - learn-vault
     image: vault
     hostname: "vault"
-    links:
-      - "consul:consul"
     environment:
       VAULT_ADDR: http://0.0.0.0:8200
     ports:
       - "8200:8200"
+    # cap_add:
+    #   - IPC_LOCK  
   prom:
     build: "./prometheus"
+    networks: 
+      - learn-vault
     image: prometheus
     ports:
      - 9090:9090
+    # cap_add:
+    #   - IPC_LOCK  
+  grafa:
+   build: "./grafana"
+   networks: 
+     - learn-vault   
+   image: grafana
+   ports:
+    - 3000:3000 
+#    cap_add:
+#      - IPC_LOCK
+networks:
+  learn-vault:
+    external: true 

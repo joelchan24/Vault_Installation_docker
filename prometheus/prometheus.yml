@@ -13,7 +13,9 @@ alerting:
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
-  # - "first_rules.yml"
+  - /etc/prometheus/rules.yml
+  - /etc/prometheus/vault_rules.yml
+  # - "/rules.yml"
   # - "second_rules.yml"
 
 # A scrape configuration containing exactly one endpoint to scrape:
@@ -34,4 +36,4 @@ scrape_configs:
     metrics_path: /v1/sys/metrics
     params:
       format: ["prometheus"]
-    bearer_token: bearer_token_here
+    bearer_token: s.g7muwFKPD0FtsHrAzGMBH2I1
