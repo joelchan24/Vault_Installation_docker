@@ -11,25 +11,7 @@ services:
     ports:
       - "8200:8200"
     # cap_add:
-    #   - IPC_LOCK  
-  prom:
-    build: "./prometheus"
-    networks: 
-      - learn-vault
-    image: prometheus
-    ports:
-     - 9090:9090
-    # cap_add:
-    #   - IPC_LOCK  
-  grafa:
-   build: "./grafana"
-   networks: 
-     - learn-vault   
-   image: grafana
-   ports:
-    - 3000:3000 
-#    cap_add:
-#      - IPC_LOCK
+    #   - IPC_LOCK 
 networks:
   learn-vault:
     external: true 

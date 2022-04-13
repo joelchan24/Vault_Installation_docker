@@ -9,9 +9,4 @@ listener "tcp" {
   tls_disable = 1
 }
 
-telemetry {
-  prometheus_retention_time = "5m",
-  disable_hostname = true
-}
-
 disable_mlock = true
