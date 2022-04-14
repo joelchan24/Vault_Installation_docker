@@ -1,4 +1,4 @@
-# vault-Docker
+# Vault-Docker
 
 ## Overview
 
